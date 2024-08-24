@@ -254,8 +254,8 @@ elif user_menu == 'Athlete-wise Analysis':
     age_data, x="Overall Age", 
     title="Distribution of Age"
     )
-    fig.update_layout(autosize=False, width=1000, height=600)
-    st.plotly_chart(fig)
+    # fig.update_layout(autosize=False, width=1000, height=600)
+    # st.plotly_chart(fig)
 
     st.subheader("Height vs Weight Analysis")
     sport_list = ['Overall'] + sorted(df['Sport'].unique().tolist())
