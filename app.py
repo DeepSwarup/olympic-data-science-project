@@ -5,7 +5,6 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
-import scipy
 
 # Load data
 df = pd.read_csv('athlete_events.csv')
@@ -245,10 +244,9 @@ elif user_menu == 'Athlete-wise Analysis':
         "Silver Medalist": athlete_df[athlete_df['Medal'] == 'Silver']['Age'].dropna(),
         "Bronze Medalist": athlete_df[athlete_df['Medal'] == 'Bronze']['Age'].dropna(),
     }
-    # fig = ff.create_distplot([age_data[k] for k in age_data.keys()], list(age_data.keys()), show_hist=False, show_rug=False)
-    # fig.update_layout(autosize=False, width=1000, height=600)
-    # st.plotly_chart(fig)
-
+    fig = ff.create_distplot([age_data[k] for k in age_data.keys()], list(age_data.keys()), show_hist=False, show_rug=False)
+    fig.update_layout(autosize=False, width=1000, height=600)
+    st.plotly_chart(fig)
 
     st.subheader("Height vs Weight Analysis")
     sport_list = ['Overall'] + sorted(df['Sport'].unique().tolist())
