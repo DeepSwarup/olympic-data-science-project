@@ -248,17 +248,7 @@ elif user_menu == 'Athlete-wise Analysis':
     # fig = ff.create_distplot([age_data[k] for k in age_data.keys()], list(age_data.keys()), show_hist=False, show_rug=False)
     # fig.update_layout(autosize=False, width=1000, height=600)
     # st.plotly_chart(fig)
-    # Prepare data
-    age_data = pd.DataFrame({
-    'Overall Age': age_data['Overall Age'],
-    'Gold Medalist': age_data['Gold Medalist'],
-    'Silver Medalist': age_data['Silver Medalist'],
-    'Bronze Medalist': age_data['Bronze Medalist']
-    })
 
-    # Plot the histogram
-    fig = px.histogram(df_melted, x='Age', color='Medal Type', marginal='rug', title='Distribution of Age by Medal Type')
-    fig.update_layout(autosize=False, width=1000, height=600)
 
     st.subheader("Height vs Weight Analysis")
     sport_list = ['Overall'] + sorted(df['Sport'].unique().tolist())
