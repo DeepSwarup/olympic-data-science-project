@@ -256,10 +256,9 @@ elif user_menu == 'Athlete-wise Analysis':
     'Bronze Medalist': age_data['Bronze Medalist']
     })
 
-    # Create density contour plot
-    fig = px.density_contour(age_data, x='Overall Age', title='Density Contour of Age')
+    # Plot the histogram
+    fig = px.histogram(df_melted, x='Age', color='Medal Type', marginal='rug', title='Distribution of Age by Medal Type')
     fig.update_layout(autosize=False, width=1000, height=600)
-    st.plotly_chart(fig)
 
     st.subheader("Height vs Weight Analysis")
     sport_list = ['Overall'] + sorted(df['Sport'].unique().tolist())
