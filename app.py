@@ -248,12 +248,16 @@ elif user_menu == 'Athlete-wise Analysis':
     # fig = ff.create_distplot([age_data[k] for k in age_data.keys()], list(age_data.keys()), show_hist=False, show_rug=False)
     # fig.update_layout(autosize=False, width=1000, height=600)
     # st.plotly_chart(fig)
+    # Prepare data
+    age_data = pd.DataFrame({
+    'Overall Age': age_data['Overall Age'],
+    'Gold Medalist': age_data['Gold Medalist'],
+    'Silver Medalist': age_data['Silver Medalist'],
+    'Bronze Medalist': age_data['Bronze Medalist']
+    })
 
-    # Distribution of Age
-    fig = px.density_contour(
-    age_data, x="Overall Age", 
-    title="Distribution of Age"
-    )
+    # Create density contour plot
+    fig = px.density_contour(age_data, x='Overall Age', title='Density Contour of Age')
     fig.update_layout(autosize=False, width=1000, height=600)
     st.plotly_chart(fig)
 
