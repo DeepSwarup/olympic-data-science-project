@@ -245,7 +245,15 @@ elif user_menu == 'Athlete-wise Analysis':
         "Silver Medalist": athlete_df[athlete_df['Medal'] == 'Silver']['Age'].dropna(),
         "Bronze Medalist": athlete_df[athlete_df['Medal'] == 'Bronze']['Age'].dropna(),
     }
-    fig = ff.create_distplot([age_data[k] for k in age_data.keys()], list(age_data.keys()), show_hist=False, show_rug=False)
+    # fig = ff.create_distplot([age_data[k] for k in age_data.keys()], list(age_data.keys()), show_hist=False, show_rug=False)
+    # fig.update_layout(autosize=False, width=1000, height=600)
+    # st.plotly_chart(fig)
+
+    # Distribution of Age
+    fig = px.density_contour(
+    age_data, x="Overall Age", 
+    title="Distribution of Age"
+    )
     fig.update_layout(autosize=False, width=1000, height=600)
     st.plotly_chart(fig)
 
